@@ -1,4 +1,5 @@
 import Snake from "./snake.js";
+import { DIR } from "./direction.js";
 
 const ARROW_KEYS = {
     LEFT: 37, 
@@ -8,18 +9,22 @@ const ARROW_KEYS = {
 }
 export default class InputHandler
 {
-    constructor(Snake)
+    constructor(snake)
     {
         document.addEventListener("keydown", (event) => 
         {
-            switch (event) {
+            switch (event.keyCode) {
                 case ARROW_KEYS.LEFT:
+                    snake.direction = DIR.LEFT;
                     break;
                 case ARROW_KEYS.RIGHT:
+                    snake.direction = DIR.RIGHT;
                     break;
                 case ARROW_KEYS.UP:
+                    snake.direction = DIR.UP;
                     break;
                 case ARROW_KEYS.DOWN:
+                    snake.direction = DIR.DOWN;
                     break;
                 default:
                     break;
