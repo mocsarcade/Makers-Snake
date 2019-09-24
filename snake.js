@@ -4,12 +4,21 @@ export default class Snake
 {
     constructor(x, y)
     {
+        function BodyPart(x, y, DIR)
+        {
+            this.x = x;
+            this.y = y;
+            this.direction = DIR;
+        }
         this.width = 30;
         this.height = 30;
-        this.body = [
-            [150, 50], [120, 50]
+        
+        this.body = [ 
+            new BodyPart(50, 100, DIR.DOWN),
+            new BodyPart(50, 70, DIR.DOWN)
         ];
-        this.direction = DIR.RIGHT;
+        // [150, 50, DIR.RIGHT], [120, 50, DIR.RIGHT]
+
     }// end constructor
 
     update(deltaTime)
@@ -17,8 +26,12 @@ export default class Snake
         // console.log(this.direction);
         for (let i = 0; i < this.body.length; i++)
         {
-            this.body[i][0] += this.direction[0];
-            this.body[i][1] += this.direction[1];
+            if(i < this.body.length - 1)
+            {
+                this.body[i + 1].direction = this.body[i].direction;
+            }
+            this.body[i].x += this.body[i].direction[0];
+            this.body[i].y += this.body[i].direction[1];
         }
     }// end method
 
@@ -27,7 +40,7 @@ export default class Snake
         ctx.beginPath();
         for (let i = 0; i < this.body.length; i++)
         {
-            ctx.rect(this.body[i][0], this.body[i][1], this.width, this.height);
+            ctx.rect(this.body[i].x, this.body[i].y, this.width, this.height);
         }
         ctx.fillStyle =  "green";
         // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
