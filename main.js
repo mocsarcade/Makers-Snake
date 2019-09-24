@@ -26,7 +26,9 @@ function gameLoop(timeStamp)
     player.update(deltaTIme);
     player.draw(ctx);
     
-    requestAnimationFrame(gameLoop);
+    //requestAnimationFrame(gameLoop);
 }// end method
 // tells the browser to call this function right before every render of the page occurs
-requestAnimationFrame(gameLoop);
+//requestAnimationFrame(gameLoop);
+// let gamespeed = 200
+// setInterval(gameLoop, gamespeed);
