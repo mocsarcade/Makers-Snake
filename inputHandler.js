@@ -15,16 +15,16 @@ export default class InputHandler
         {
             switch (event.keyCode) {
                 case ARROW_KEYS.LEFT:
-                    snake.direction = DIR.LEFT;
+                    snake.body[0].direction = DIR.LEFT;
                     break;
                 case ARROW_KEYS.RIGHT:
-                    snake.direction = DIR.RIGHT;
+                    snake.body[0].direction = DIR.RIGHT;
                     break;
                 case ARROW_KEYS.UP:
-                    snake.direction = DIR.UP;
+                    snake.body[0].direction = DIR.UP;
                     break;
                 case ARROW_KEYS.DOWN:
-                    snake.direction = DIR.DOWN;
+                    snake.body[0].direction = DIR.DOWN;
                     break;
                 default:
                     break;
