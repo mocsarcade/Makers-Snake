@@ -1,3 +1,5 @@
+import { DIR } from "./direction.js";
+
 export default class Snake
 {
     constructor(x, y)
@@ -5,6 +7,7 @@ export default class Snake
         this.width = 30;
         this.height = 30;
         this.body = [];
+        this.direction = DIR.RIGHT;
         this.position = 
         {
             x: x,
@@ -14,7 +17,9 @@ export default class Snake
 
     update(deltaTime)
     {
-        this.position.x += 5;
+        // console.log(this.direction);
+        this.position.x += this.direction[0];
+        this.position.y += this.direction[1];
     }// end method
 
     draw(ctx)
