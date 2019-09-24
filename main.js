@@ -1,13 +1,13 @@
 import Snake from "./snake.js";
-
+import InputHandler from "./inputHandler.js";
 // initialize vars
 let cvs = document.getElementById("canvas");
 // this is the context, it's an attribute of the canvas
 // whose methods we can use to draw graphics
 let ctx = cvs.getContext("2d");
 let lastTime = 0;
-var player = new Snake(40, 40);
-
+let player = new Snake(40, 40, 2);
+let input = new InputHandler(player);
 // the main game loop
 
 function gameLoop(timeStamp)
