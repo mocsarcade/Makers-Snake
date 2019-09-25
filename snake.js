@@ -1,4 +1,4 @@
-import { DIR } from "./direction.js";
+import DirEnum from "./dirEnum.js";
 
 export default class Snake
 {
@@ -8,14 +8,15 @@ export default class Snake
         {
             this.x = x;
             this.y = y;
-            this.direction = DIR;
         }
-        this.width = 30;
-        this.height = 30;
-        
+        this.width = 10;
+        this.height = 10;
+        this.dirEnum = new DirEnum(this.width);
+        this.direction = this.dirEnum.DIR.DOWN;
         this.body = [ 
-            new BodyPart(50, 100, DIR.DOWN),
-            new BodyPart(50, 70, DIR.DOWN)
+            new BodyPart(x, y),
+            new BodyPart(x, y - this.height),
+            new BodyPart(x, y - (2 * this.height))
         ];
         // [150, 50, DIR.RIGHT], [120, 50, DIR.RIGHT]
 
@@ -24,15 +25,13 @@ export default class Snake
     update(deltaTime)
     {
         // console.log(this.direction);
-        for (let i = 0; i < this.body.length; i++)
+        for (let i = this.body.length - 1; i > 0; i--)
         {
-            if(i < this.body.length - 1)
-            {
-                this.body[i + 1].direction = this.body[i].direction;
-            }
-            this.body[i].x += this.body[i].direction[0];
-            this.body[i].y += this.body[i].direction[1];
+            this.body[i].x = this.body[i - 1].x;
+            this.body[i].y = this.body[i - 1].y;
         }
+        this.body[0].x += this.direction[0];
+        this.body[0].y += this.direction[1];
     }// end method
 
     draw(ctx)
