@@ -28,11 +28,15 @@ export default class Snake
 
 	getHeight() { return this.height; }// end method
 
-	getDirrection() { return this.direction; }// end method
+	getDirection() { return this.direction; }// end method
+
+	getDirEnum() { return this.DirEnum; }// end method
+
+	setWidth(width) { this.width = width; }// end method
 
 	setHeight(height) { this.height = height; }// end method
 
-	setWidth(width) { this.width = width; }// end method
+	setDirection(direction) { this.direction = direction; }// end method
 
 	update(deltaTime)
 	{
