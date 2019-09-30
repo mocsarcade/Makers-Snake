@@ -1,6 +1,6 @@
 export default class Food
 {
-	constructor(x, y, game)
+	constructor(x, y)
 	{
 		this.x = x;
 		this.y = y;
