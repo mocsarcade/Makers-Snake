@@ -12,19 +12,20 @@ export default class InputHandler
 		{
 			switch (event.keyCode) {
 			case ARROW_KEYS.LEFT:
-				if(snake.getDirection() != snake.getDirEnum().DIR.RIGHT) 
+				if(snake.getDirection() != snake.dirEnum.DIR.RIGHT)
+					//console.log(snake);
 					snake.setDirection(snake.dirEnum.DIR.LEFT);
 				break;
 			case ARROW_KEYS.RIGHT:
-				if(snake.getDirection() != snake.getDirEnum().DIR.LEFT) 
+				if(snake.getDirection() != snake.dirEnum.DIR.LEFT) 
 					snake.setDirection(snake.dirEnum.DIR.RIGHT);
 				break;
 			case ARROW_KEYS.UP:
-				if(snake.getDirection() != snake.getDirEnum().DIR.DOWN) 
+				if(snake.getDirection() != snake.dirEnum.DIR.DOWN) 
 					snake.setDirection(snake.dirEnum.DIR.UP);
 				break;
 			case ARROW_KEYS.DOWN:
-				if(snake.getDirection() != snake.getDirEnum().DIR.UP) 
+				if(snake.getDirection() != snake.dirEnum.DIR.UP) 
 					snake.setDirection(snake.dirEnum.DIR.DOWN);
 				break;
 			default:

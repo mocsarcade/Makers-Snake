@@ -13,10 +13,10 @@ export default class SnakeGame
 
 	initialize()
 	{
-		let player = new Snake(40, 40, 2);
-		let input = new InputHandler(player);
-		let food = new Food(50, 50);
-		this.gameObjects.push(player, food);
+		this.player = new Snake(40, 40, 2);
+		this.food = new Food(50, 50);
+		new InputHandler(this.player);
+		this.gameObjects.push(this.player, this.food);
 	}// end method
     
 	update(deltaTime)
