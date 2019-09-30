@@ -1,6 +1,6 @@
 export default class Food
 {
-	constructor(x, y)
+	constructor(x, y, game)
 	{
 		this.x = x;
 		this.y = y;
@@ -10,8 +10,7 @@ export default class Food
 
 	update(deltatime)
 	{
-        
-	}
+	}// end method
 
 	draw(ctx)
 	{
@@ -19,5 +18,5 @@ export default class Food
 		ctx.fillStyle = "yellow";
 		ctx.rect(this.x, this.y, this.width, this.height);
 		ctx.fill();
-	}
+	}// end method
 }// end class
