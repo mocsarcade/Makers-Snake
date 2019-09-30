@@ -24,15 +24,15 @@ export default class Snake
 
 	}// end constructor
 
-	getWidth() { return this.width; }
+	getWidth() { return this.width; }// end method
 
-	getHeight() { return this.height; }
+	getHeight() { return this.height; }// end method
 
-	getDirrection() { return this.direction; }
+	getDirrection() { return this.direction; }// end method
 
-	setHeight(height) { this.height = height; }
+	setHeight(height) { this.height = height; }// end method
 
-	setWidth(width) { this.width = width; }
+	setWidth(width) { this.width = width; }// end method
 
 	update(deltaTime)
 	{
