@@ -4,15 +4,17 @@ export default class Snake
 {
 	constructor(x, y)
 	{
-		function BodyPart(x, y, DIR)
-		{
-			this.x = x;
-			this.y = y;
-		}
 		this.width = 10;
 		this.height = 10;
 		this.dirEnum = new DirEnum(this.width);
 		this.direction = this.dirEnum.DIR.DOWN;
+
+		function BodyPart(x, y)
+		{
+			this.x = x;
+			this.y = y;
+		}
+		
 		this.body = [ 
 			new BodyPart(x, y),
 			new BodyPart(x, y - this.height),
@@ -22,6 +24,16 @@ export default class Snake
 
 	}// end constructor
 
+	getWidth() { return this.width; }
+
+	getHeight() { return this.height; }
+
+	getDirrection() { return this.direction; }
+
+	setHeight(height) { this.height = height; }
+
+	setWidth(width) { this.width = width; }
+
 	update(deltaTime)
 	{
 		console.log(deltaTime);
@@ -30,8 +42,8 @@ export default class Snake
 			this.body[i].x = this.body[i - 1].x;
 			this.body[i].y = this.body[i - 1].y;
 		}
-		this.body[0].x += this.direction[0] * deltaTime;
-		this.body[0].y += this.direction[1] * deltaTime;
+		this.body[0].x += this.direction[0];
+		this.body[0].y += this.direction[1];
 	}// end method
 
 	draw(ctx)
